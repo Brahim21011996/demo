@@ -98,13 +98,12 @@
 </style>
 
 <script>
-document.querySelector("model-viewer").addEventListener("ar-status", (e) => {
+  const instruction = document.getElementById("ar-instruction");
+  document.querySelector("model-viewer").addEventListener("ar-status", (e) => {
     if (e.detail.status === "session-started") {
-        document.getElementById("custom-ar-instruction").style.display = "block";
-    } else {
-        document.getElementById("custom-ar-instruction").style.display = "none";
+      instruction.style.display = "none"; // hide overlay when AR starts
     }
-});
+  });
 </script>
 
 
