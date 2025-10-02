@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Essai en Réalité Augmentée</title>
+</head>
+
+<body>
+    <div class="container">
+
+        <header>Une Nouvelle Vision du Meuble en Réalité Augmentée</header>
+        <img src="./assets/logo2.jpg" alt="Réalité Augmentée">
+        <h1>Visualisez Votre Futur Meuble en RA</h1>
+        <p>Par Dr BOUZID Marwa </p>
+        <a href="./ar/ar.html" target="_blank">
+            <img src="./assets/arrow.png" alt="arrow">
+        </a>
+         
+    </div>
+</body>
+</html>
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    let ua = navigator.userAgent.toLowerCase();
+
+    // Allow only Chrome, Canary, Edge (Chromium), Samsung Internet
+    let isChrome = ua.includes("chrome") && !ua.includes("edg") && !ua.includes("samsung");
+    let isCanary = ua.includes("chrome") && ua.includes("canary");
+    let isEdge = ua.includes("edg"); // Chromium Edge
+    let isSamsung = ua.includes("samsungbrowser");
+
+    if (!(isChrome || isCanary || isEdge || isSamsung)) {
+      // Create popup
+      let popup = document.createElement("div");
+      popup.innerHTML = `
+        <div id="ar-popup" style="
+          position: fixed;
+          top: 0; left: 0; right: 0; bottom: 0;
+          background: rgba(0,0,0,0.6);
+          display: flex; justify-content: center; align-items: center;
+          z-index: 9999;">
+          <div style="
+            background: #fff;
+            padding: 20px;
+            max-width: 380px;
+            text-align: center;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);">
+            
+            <h2 style="margin-bottom: 10px; font-size: 18px;">⚠️ Réalité augmentée non prise en charge</h2>
+            <p style="margin-bottom: 15px; font-size: 15px;">
+              Votre navigateur actuel ne supporte pas encore la Réalité Augmentée.<br><br>
+              Pour une meilleure expérience, veuillez utiliser <b>Google Chrome</b>.
+            </p>
+            <button id="close-ar-popup" style="
+              padding: 8px 16px;
+              background: #007bff;
+              color: white;
+              border: none;
+              border-radius: 8px;
+              cursor: pointer;">
+              OK, j'ai compris
+            </button>
+          </div>
+        </div>
+      `;
+      document.body.appendChild(popup);
+
+      // Close button
+      document.getElementById("close-ar-popup").addEventListener("click", function() {
+        document.getElementById("ar-popup").remove();
+      });
+    }
+  });
+</script>
+
+
