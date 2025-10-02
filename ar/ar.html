@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
   <head>
     <title>Essai en Réalité Augmentéeffff</title>
     <meta charset="utf-8">
@@ -23,18 +23,24 @@
     <!-- 💁 OPTIONAL: The :focus-visible polyfill removes the focus ring for some input types -->
     <script src="https://unpkg.com/focus-visible@5.0.2/dist/focus-visible.js" defer></script>
     <style>
-    /* Hide AR status messages like "Point your phone down at an empty space" */
-    model-viewer::part(ar-status) {
-      display: none !important;
-    }
-
-    /* Hide the animated AR placement prompt (the hand icon) */
-    model-viewer::part(default-ar-prompt) {
-      display: none !important;
+    /* Instruction overlay styling */
+    #ar-instruction {
+      position: fixed;
+      bottom: 20px;
+      width: 100%;
+      text-align: center;
+      background: rgba(0, 0, 0, 0.7);
+      color: white;
+      padding: 10px;
+      font-size: 16px;
+      z-index: 9999;
     }
   </style>
   </head> 
 <body>
+  <div id="ar-instruction">
+  📌 Pointez votre téléphone vers un espace vide pour placer l’objet
+</div>
   <div id="card">
     <!-- reveal="interaction" -->
     <!-- All you need to put beautiful, interactive 3D content on your site: -->
@@ -83,21 +89,7 @@
   <script nomodule
       src="https://unpkg.com/@google/model-viewer/dist/model-viewer-legacy.js">
   </script>
-</body>
-</html>
-<style>
-  /* Hide AR status messages like "Point your phone down at an empty space" */
-  model-viewer::part(ar-status) {
-    display: none !important;
-  }
-
-  /* Hide the animated AR placement prompt (the hand icon) */
-  model-viewer::part(default-ar-prompt) {
-    display: none !important;
-  }
-</style>
-
-<script>
+  <script>
   const instruction = document.getElementById("ar-instruction");
   document.querySelector("model-viewer").addEventListener("ar-status", (e) => {
     if (e.detail.status === "session-started") {
@@ -105,5 +97,10 @@
     }
   });
 </script>
+</body>
+</html>
+
+
+
 
 
