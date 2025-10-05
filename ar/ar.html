@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>1253Essai en Réalité Augmentée</title>
+    <title>Essai en Réalité Augmentée</title>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -22,26 +22,39 @@
     
     <!-- 💁 OPTIONAL: The :focus-visible polyfill removes the focus ring for some input types -->
     <script src="https://unpkg.com/focus-visible@5.0.2/dist/focus-visible.js" defer></script>
+    <style>
+    /* Hide AR status messages like "Point your phone down at an empty space" */
+    model-viewer::part(ar-status) {
+      display: none !important;
+    }
+
+    /* Hide the animated AR placement prompt (the hand icon) */
+    model-viewer::part(default-ar-prompt) {
+      display: none !important;
+    }
+  </style>
   </head> 
 <body>
   <div id="card">
     <!-- reveal="interaction" -->
     <!-- All you need to put beautiful, interactive 3D content on your site: -->
-    <model-viewer src="https://32m9h3am63.ucarecd.net/95091c8f-2d1c-4a39-a7b8-0cefcc71328d/Amestrdam.glb"
-                  ios-src="https://32m9h3am63.ucarecd.net/c7070d2c-19ac-4c2c-b2f9-3c14140430e5/Amsterdam.usdz"
-                  poster="https://32m9h3am63.ucarecd.net/6a405938-0570-464b-a92b-27852042b7b0/amestrdam.PNG"
-                  alt="Un modèle 3D 'Amestrdam Fauteuil.'"
-                  shadow-intensity="1" 
+    <model-viewer src="https://32m9h3am63.ucarecd.net/ef0c9cc9-0a01-4244-b2e5-19cc4c966ebe/abstract.glb"
+                  ios-src="https://32m9h3am63.ucarecd.net/8e557df0-450e-4f58-a6c6-26876b407086/abstract.usdz"
+                  poster="https://32m9h3am63.ucarecd.net/e384c647-5d35-4dc7-b519-9f017a8bf8c3/abstrait.PNG"
+                  alt="Un modèle 3D 'tableau abstrait.'"
+                  ar
                   reveal="interaction
                   ar-modes="quick-look webxr scene-viewer" 
-                  ar-placement="floor"
+                  ar-placement="wall"
+                  shadow-intensity="1" 
+                  reveal="interaction
                   camera-controls
                   interaction-prompt="auto"
-                  auto-rotate ar magic-leap>
+                  auto-rotate ar >
     </model-viewer>
     <section class="attribution">
       <span>
-        <h1>Amestrdam Fauteuil</h1>
+        <h1>tableau abstrait</h1>
         <span>par <span class="underLine">Dr BOUZID Marwa </span>( Concepteur développeur informatique )</span>
       </span>
     </section>
@@ -58,6 +71,7 @@
   </script>
 </body>
 </html>
+
 
 
 
